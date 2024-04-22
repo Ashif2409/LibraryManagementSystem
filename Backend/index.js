@@ -320,7 +320,9 @@ app.post('/delReqBooks', async (req, res) => {
 
 
 
-app.get('/', (req, res) => res.send("hello world"));
+app.get('/',(req,res)=>{
+res.send("hello worlddd"):
+}
 
 
 app.listen(port, () => console.log(`Server is running on port ${port}`));
