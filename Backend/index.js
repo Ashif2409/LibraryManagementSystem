@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 main().catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb+srv://ashif:Ashif@786@1234@cluster0.q7r9p4z.mongodb.net/LibManSys?retryWrites=true&w=majority&appName=Cluster0');
+  await mongoose.connect('mongodb+srv://ashif:ashif@786@cluster0.q7r9p4z.mongodb.net/LibManSys?retryWrites=true&w=majority&appName=Cluster0');
   console.log("Connected to MongoDB");
 }
 
