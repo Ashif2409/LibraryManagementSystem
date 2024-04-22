@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
@@ -6,11 +6,17 @@ import { setUserName, setBorrowedBooks } from '../store/Slice';
 import { useNavigate } from 'react-router-dom'
 
 const Login = ({ isAdmin }) => {
-    const [user, setUser] = useState('');
-    const [password, setPassword] = useState('');
+    const [user, setUser] = useState(isAdmin ? 'admin' : 'user');
+    const [password, setPassword] = useState(isAdmin ? 'admin' : 'user');
     const dispatch = useDispatch();
     const navigate = useNavigate();
     
+  useEffect(() => {
+   setUser(isAdmin?'admin':'user');
+   setPassword(isAdmin?'admin':'user')
+  }, [isAdmin])
+  
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if (isAdmin && user === 'admin' && password === 'admin') {
