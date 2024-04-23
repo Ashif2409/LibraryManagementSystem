@@ -24,7 +24,7 @@ const Login = ({ isAdmin }) => {
         } else {
 
             try {
-                axios.post("http://localhost:8000/login", { username: user, password: password })
+                axios.post("https://library-management-system-api-woad.vercel.app/login", { username: user, password: password })
                     .then(response => {
                       if(!response.status===401){
                         alert('username or password is not valid')
