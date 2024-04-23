@@ -32,7 +32,7 @@ const UserPage = () => {
     const issueBook = (book) => {
         const confirmIssue = window.confirm(`Are you sure you want to issue ${book.bookname}?`);
         if (confirmIssue) {
-            axios.post("http://localhost:8000/issueBook", { username: userName, book: book })
+            axios.post("https://library-management-system-api-woad.vercel.app/issueBook", { username: userName, book: book })
                 .then(response => {
                     dispatch(setBorrowedBooks(response.data.books))
                     alert(response.data.message);
@@ -49,7 +49,7 @@ const UserPage = () => {
 
     const handleReturnBook = (book) => {
         const { bookname } = book;
-        axios.post("http://localhost:8000/returnBook", { username: userName, book: { bookname } })
+        axios.post("https://library-management-system-api-woad.vercel.app/returnBook", { username: userName, book: { bookname } })
             .then(response => {
                 window.confirm(`Your fine is Rs: ${book.fine}`)
                 alert(response.data.message)
@@ -61,7 +61,7 @@ const UserPage = () => {
     };
 
     const handleReqBookSubmit = () => {
-        axios.post("http://localhost:8000/reqBook", { bookname: reqBookName, author: reqAuthorName })
+        axios.post("https://library-management-system-api-woad.vercel.app/reqBook", { bookname: reqBookName, author: reqAuthorName })
             .then(response => {
                 alert(response.data.message);
                 setReqAuthorName('');
@@ -72,7 +72,7 @@ const UserPage = () => {
     }
 
     useEffect(() => {
-        axios.get('http://localhost:8000/books')
+        axios.get('https://library-management-system-api-woad.vercel.app/books')
             .then(response => {
                 setBooks(response.data.books);
             })
