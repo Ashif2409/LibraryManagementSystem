@@ -9,28 +9,28 @@ const Admin = () => {
   const [bookname, setBookname] = useState('');
   const [reqBooks, setReqBooks] = useState([]);
   const findUser = (e) => {
-    axios.post("http://localhost:8000/userBooks", { username: user })
+    axios.post("https://library-management-system-api-woad.vercel.app/userBooks", { username: user })
       .then(response => {
         setUserDetail(response.data.books)
       })
   }
 
   const findBookDetails = () => {
-    axios.post("http://localhost:8000/books", { bookName: bookname })
+    axios.post("https://library-management-system-api-woad.vercel.app/books", { bookName: bookname })
       .then(res => {
         console.log([res.data.books]);
         setBookDetails([res.data.books]);
       })
   }
   useEffect(() => {
-    axios.get("http://localhost:8000/getReqBooks")
+    axios.get("https://library-management-system-api-woad.vercel.app/getReqBooks")
       .then(res => {
         setReqBooks(res.data.books);
       })
   }, [])
 
   const handleCheckboxChange = (books) => {
-    axios.post("http://localhost:8000/delReqBooks", { book: books })
+    axios.post("https://library-management-system-api-woad.vercel.app/delReqBooks", { book: books })
       .then(res => {
         const confirm = window.confirm("Book is added to Library");
         if (confirm) {
