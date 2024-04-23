@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-
+const port=  process.env.PORT || 3000
 const app = express();
 
 app.use(cors({
@@ -321,6 +321,6 @@ app.post('/delReqBooks', async (req, res) => {
 
 app.get("/", (req, res) => res.send("Express on Vercel"));
 
-app.listen(3000, () => console.log("Server ready on port 3000."));
+app.listen(port, () => console.log("Server ready on port 3000."));
 
 module.exports = app;
