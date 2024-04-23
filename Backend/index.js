@@ -6,7 +6,7 @@ const port=  process.env.PORT || 3000
 const app = express();
 
 app.use(cors({
-  origin:["https://deploy-LibManSys.vercel.app"],
+  origin:["https://library-management-system-lovat-nu.vercel.app/"],
   methods:["POST","GET"],
   credentials:true
 }));
