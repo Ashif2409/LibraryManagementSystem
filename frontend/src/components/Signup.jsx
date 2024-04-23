@@ -13,7 +13,7 @@ const Signup = () => {
     e.preventDefault(); 
     if (user && password !== '' && confirmPass === password) {
         try {
-          axios.post("http://localhost:8000/signup", { username: user, password: password })
+          axios.post("https://library-management-system-api-woad.vercel.app/signup", { username: user, password: password })
           .then(res => {
             console.log(res.data)
              navigate("/");
